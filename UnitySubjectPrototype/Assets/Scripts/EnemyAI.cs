@@ -4,8 +4,8 @@ public class EnemyAI : MonoBehaviour
 {
     public float detectionRange = 5f;  // Радиус обнаружения игрока
     public float moveSpeed = 3f;        // Скорость передвижения врага
-    public int damage = 30;              // Урон врага
     public int health = 100;             // Здоровье врага
+    public int damage = 30;              // Урон врага
 
     private Transform player;            // Ссылка на игрока
     private bool isPlayerInRange = false; // Флаг, указывающий, находится ли игрок в зоне обнаружения
@@ -39,15 +39,12 @@ public class EnemyAI : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void TakeDamage(int damage)
     {
-        if (collision.CompareTag("Player"))
+        health -= damage;
+        if (health <= 0)
         {
-            PlayerMovement playerMovement = collision.GetComponent<PlayerMovement>();
-            if (playerMovement != null)
-            {
-                playerMovement.TakeDamage(damage);
-            }
+            Destroy(gameObject); // Уничтожаем врага, если здоровье меньше или равно нулю
         }
     }
 
