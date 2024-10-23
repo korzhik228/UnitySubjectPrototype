@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    public float detectionRange = 5f;  // Радиус обнаружения игрока
-    public float moveSpeed = 3f;        // Скорость передвижения врага
-    public int health = 100;             // Здоровье врага
-    public int damage = 30;              // Урон врага
+    public float detectionRange = 5f;  // Р Р°РґРёСѓСЃ РѕР±РЅР°СЂСѓР¶РµРЅРёСЏ РёРіСЂРѕРєР°
+    public float moveSpeed = 3f;        // РЎРєРѕСЂРѕСЃС‚СЊ РїРµСЂРµРґРІРёР¶РµРЅРёСЏ РІСЂР°РіР°
+    public int health = 100;             // Р—РґРѕСЂРѕРІСЊРµ РІСЂР°РіР°
+    public int damage = 30;              // РЈСЂРѕРЅ РІСЂР°РіР°
 
-    private Transform player;            // Ссылка на игрока
-    private bool isPlayerInRange = false; // Флаг, указывающий, находится ли игрок в зоне обнаружения
+    private Transform player;            // РЎСЃС‹Р»РєР° РЅР° РёРіСЂРѕРєР°
+    private bool isPlayerInRange = false; // Р¤Р»Р°Рі, СѓРєР°Р·С‹РІР°СЋС‰РёР№, РЅР°С…РѕРґРёС‚СЃСЏ Р»Рё РёРіСЂРѕРє РІ Р·РѕРЅРµ РѕР±РЅР°СЂСѓР¶РµРЅРёСЏ
 
     void Start()
     {
-        GameObject playerObject = GameObject.Find("Player"); // Предполагается, что игрок называется "Player"
+        GameObject playerObject = GameObject.Find("Player"); // РџСЂРµРґРїРѕР»Р°РіР°РµС‚СЃСЏ, С‡С‚Рѕ РёРіСЂРѕРє РЅР°Р·С‹РІР°РµС‚СЃСЏ "Player"
         if (playerObject != null)
         {
             player = playerObject.transform;
@@ -44,7 +44,18 @@ public class EnemyAI : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            Destroy(gameObject); // Уничтожаем врага, если здоровье меньше или равно нулю
+            Destroy(gameObject); // РЈРЅРёС‡С‚РѕР¶Р°РµРј РІСЂР°РіР°, РµСЃР»Рё Р·РґРѕСЂРѕРІСЊРµ РјРµРЅСЊС€Рµ РёР»Рё СЂР°РІРЅРѕ РЅСѓР»СЋ
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            PlayerMovement playerMovement = collision.GetComponent<PlayerMovement>();
+            if (playerMovement != null)
+            {
+                playerMovement.TakeDamage(damage);
+            }
         }
     }
 

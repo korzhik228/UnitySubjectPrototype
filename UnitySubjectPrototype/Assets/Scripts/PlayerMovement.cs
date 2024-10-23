@@ -4,11 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f; // Скорость передвижения игрока
-    public int health = 100;      // Здоровье игрока
-    public HealthBar healthBar;   // Ссылка на HealthBar UI
+    public float moveSpeed = 5f; // РЎРєРѕСЂРѕСЃС‚СЊ РїРµСЂРµРґРІРёР¶РµРЅРёСЏ РёРіСЂРѕРєР°
+    public int health = 100;      // Р—РґРѕСЂРѕРІСЊРµ РёРіСЂРѕРєР°
+    public HealthBar healthBar;   // РЎСЃС‹Р»РєР° РЅР° HealthBar UI
 
-    private Vector2 movement; // Вектор направления движения
+    private Vector2 movement; // Р’РµРєС‚РѕСЂ РЅР°РїСЂР°РІР»РµРЅРёСЏ РґРІРёР¶РµРЅРёСЏ
 
     void Start()
     {
@@ -17,11 +17,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Получаем ввод с клавиатуры
+        // РџРѕР»СѓС‡Р°РµРј РІРІРѕРґ СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");
 
-        // Нормализуем вектор движения, чтобы избежать ускорения при диагональном движении
+        // РќРѕСЂРјР°Р»РёР·СѓРµРј РІРµРєС‚РѕСЂ РґРІРёР¶РµРЅРёСЏ, С‡С‚РѕР±С‹ РёР·Р±РµР¶Р°С‚СЊ СѓСЃРєРѕСЂРµРЅРёСЏ РїСЂРё РґРёР°РіРѕРЅР°Р»СЊРЅРѕРј РґРІРёР¶РµРЅРёРё
         if (movement.magnitude > 1)
         {
             movement.Normalize();
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Перемещаем игрока
+        // РџРµСЂРµРјРµС‰Р°РµРј РёРіСЂРѕРєР°
         Vector2 newPosition = (Vector2)transform.position + movement * moveSpeed * Time.fixedDeltaTime;
         transform.position = newPosition;
     }
@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         health -= damage;
         healthBar.SetHealth(health);
 
-        // Изменение цвета игрока
+        // РР·РјРµРЅРµРЅРёРµ С†РІРµС‚Р° РёРіСЂРѕРєР°
         StartCoroutine(FlashRed());
 
         if (health <= 0)
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator FlashRed()
     {
-        // Изменяем цвет игрока на красный
+        // РР·РјРµРЅСЏРµРј С†РІРµС‚ РёРіСЂРѕРєР° РЅР° РєСЂР°СЃРЅС‹Р№
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(0.1f);

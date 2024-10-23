@@ -157,10 +157,10 @@ RectTransform:
   - {fileID: 1675506235}
   m_Father: {fileID: 462825556}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -706.6744, y: 437.1635}
-  m_SizeDelta: {x: 135.9086, y: 29.323}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 317, y: -86}
+  m_SizeDelta: {x: 135.90857, y: 29.322998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &124298554
 MonoBehaviour:
@@ -259,7 +259,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 1.8332977, y: 0}
+  m_AnchoredPosition: {x: 1.833313, y: 0}
   m_SizeDelta: {x: -4.0667, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &314260336
@@ -1677,8 +1677,20 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 798618912898296444, guid: 1d5806f0139c31746a00d97926af0625, type: 3}
+      propertyPath: health
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 798618912898296444, guid: 1d5806f0139c31746a00d97926af0625, type: 3}
+      propertyPath: detectionRange
+      value: 4.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1471199603459303946, guid: 1d5806f0139c31746a00d97926af0625, type: 3}
       propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471199603459303946, guid: 1d5806f0139c31746a00d97926af0625, type: 3}
+      propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2034247679231902920, guid: 1d5806f0139c31746a00d97926af0625, type: 3}
