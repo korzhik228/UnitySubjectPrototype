@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float lifeTime = 2f;   // Время жизни пули
-    public int damage = 10;        // Урон пули
+    public float lifeTime = 2f;   
+    public int damage = 10;        
 
     void Start()
     {
-        // Уничтожаем пулю через заданное время
+        
         Destroy(gameObject, lifeTime);
     }
 
@@ -17,10 +17,10 @@ public class Bullet : MonoBehaviour
         EnemyAI enemy = collision.GetComponent<EnemyAI>();
         if (enemy != null)
         {
-            enemy.TakeDamage(damage); // Наносим урон врагу
+            enemy.TakeDamage(damage); 
         }
 
-        // Уничтожаем пулю при столкновении
+       
         Destroy(gameObject);
     }
 }

@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    public float detectionRange = 5f;  // Радиус обнаружения игрока
-    public float moveSpeed = 3f;        // Скорость передвижения врага
-    public int health = 100;             // Здоровье врага
-    public int damage = 30;              // Урон врага
+    public float detectionRange = 5f;  
+    public float moveSpeed = 3f;        
+    public int health = 100;             
+    public int damage = 30;             
 
-    private Transform player;            // Ссылка на игрока
-    private bool isPlayerInRange = false; // Флаг, указывающий, находится ли игрок в зоне обнаружения
+    private Transform player;         
+    private bool isPlayerInRange = false; 
 
     void Start()
     {
-        GameObject playerObject = GameObject.Find("Player"); // Предполагается, что игрок называется "Player"
+        GameObject playerObject = GameObject.Find("Player"); 
         if (playerObject != null)
         {
             player = playerObject.transform;
@@ -44,7 +44,7 @@ public class EnemyAI : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            Destroy(gameObject); // Уничтожаем врага, если здоровье меньше или равно нулю
+            Destroy(gameObject); 
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
