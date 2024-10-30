@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        // Проверяем, попали ли мы в врага
+       
         EnemyAI enemy = collision.GetComponent<EnemyAI>();
         if (enemy != null)
         {

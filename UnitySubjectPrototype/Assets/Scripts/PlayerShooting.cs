@@ -22,7 +22,7 @@ public class PlayerShooting : MonoBehaviour
 
     void Shoot()
     {
-        // Создаем пулю и устанавливаем её позицию
+        
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = firePoint.up * bulletSpeed; 
